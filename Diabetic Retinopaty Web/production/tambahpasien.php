@@ -37,7 +37,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Sistem RFID</span></a>
+              <a href="index.php" class="site_title"><i class="fa fa-paw"></i> <span>Sistem RFID</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -60,21 +60,13 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="../production/index.html"><i class="fa fa-home"></i> Home 
+                  <li><a><i class="fa fa-home"></i> Home 
                   </a>
                   </li>
                   <li><a><i class="fa fa-user-plus" aria-hidden="true"></i> Data Pasien
                      <!-- <span class="fa fa-chevron-down"></span> -->
                     </a>
                   </li>
-                  <li><a href="../production/recap.html"><i class="fa fa-user-plus" aria-hidden="true"></i> Recap Pasien
-                    <!-- <span class="fa fa-chevron-down"></span> -->
-                   </a>
-                 </li>
-                  <li><a href="../production/scankartu.html"><i class="fa fa-id-card" aria-hidden="true"></i> Scan Kartu
-                    <!-- <span class="fa fa-chevron-down"></span> -->
-                   </a>
-                 </li>
                   </li>
                 </ul>
               </div>
@@ -102,7 +94,7 @@
                           <span>Settings</span>
                         </a>
                       <a class="dropdown-item"  href="javascript:;">Help</a>
-                      <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                      <a class="dropdown-item"  href="login.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                     </div>
                   </li>
                 </ul>
@@ -116,8 +108,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Data <small>Pasien</small></h3>
-                <a href="../production/tambahpasien.html" class="btn btn-primary mb-3"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Data Pasien </a>
+                <h3>Detail <small>Data Pasien</small></h3>
               </div>
 
               <div class="title_right">
@@ -138,7 +129,7 @@
               <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Data Pasien</h2>
+                    <h2>Detail Data Pasien</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -161,30 +152,51 @@
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
-                    <table id="datatable" class="table table-striped table-bordered" style="width:100%">
-                      <thead>
-                        <tr>
-                          <th scope="col" style="text-align:center">No</th>
-                          <th scope="col" style="text-align:center">No Kartu</th>
-                          <th scope="col" style="text-align:center">Nama</th>
-                          <th scope="col" style="text-align:center">Pekerjaan</th>
-                          <th colspan="3" scope="col" style="text-align:center">Aksi</th>
-                        </tr>
-                      </thead>
-
-                      <tbody>
-                          <td style="text-align:center">1</td>
-                          <td style="text-align:center">16012941204</td>
-                          <td style="text-align:center">Bruno Nash</td>
-                          <td style="text-align:center">Software Engineer</td>
-                          <td style="text-align:center"><a href="../production/detailpasien.html" class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
-                          <td style="text-align:center"><a href="../production/editpasien.html" class="btn btn-success btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-                          <!-- <td style="text-align:center"><a href="tutor/editdatatutor.php?id_tutor=<?php echo $row['id_tutor']; ?>" class="btn btn-success btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td> -->
-                          <td style="text-align:center"><a href="tutor/deletedatatutor.php?id_tutor=<?=$row['id_tutor']; ?>" onclick="return confirm('Anda yakin mau menghapus item ini ?')" class="btn btn-danger btn-sm"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-                        </tr>
-                        </tr>
-                      </tbody>
-                    </table>
+                    <form action="tambahdatatutor.php" method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Email</label>
+                            <input type="email" class="form-control" name="email" required
+                                placeholder="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Password</label>
+                            <input type="text" class="form-control" name="password" required
+                                placeholder="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Fullname</label>
+                            <input type="text" class="form-control" name="fullname_tutor" required
+                                placeholder="fullname">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Instansi</label>
+                            <input type="text" class="form-control" name="instansi" required
+                                placeholder="instansi">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">No HP</label>
+                            <input type="text" class="form-control" name="no_telp" required
+                                placeholder="no telp">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Gender</label>
+                            <input type="text" class="form-control" name="gender" required
+                                placeholder="gender">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Alamat</label>
+                            <textarea class="form-control" name="alamat" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Tanggal Lahir</label>
+                            <input type="date" class="form-control" name="tgl_lahir" required
+                                placeholder="tangal lahir">
+                        <div class="form-group">
+                            <button class="btn btn-primary" type="submit" name="tambah">Simpan</button>
+                            <a href="../production/datapasien.php">
+                                <button class="btn btn-danger" type="button" name="kembali">Kembali</button>
+                            </a>
+                        </div>
+                    </form>
                   </div>
                   </div>
               </div>

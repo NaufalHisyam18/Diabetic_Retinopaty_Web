@@ -37,7 +37,7 @@
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Sistem RFID</span></a>
+              <a href="index.php" class="site_title"><i class="fa fa-paw"></i> <span>Sistem RFID</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -94,7 +94,7 @@
                           <span>Settings</span>
                         </a>
                       <a class="dropdown-item"  href="javascript:;">Help</a>
-                      <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                      <a class="dropdown-item"  href="login.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                     </div>
                   </li>
                 </ul>
@@ -152,50 +152,54 @@
                     <!-- <p class="text-muted font-13 m-b-30">
                       DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function: <code>$().DataTable();</code>
                     </p> -->
-                    <form action="tambahdatatutor.php" method="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Email</label>
-                            <input type="email" class="form-control" name="email" required
-                                placeholder="email">
+                    <form id="form_validation" method="POST">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">No Kartu</label>
+                                <input type="email" class="form-control" name="email" value="<?php echo $email;?>" required disabled>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Password</label>
-                            <input type="text" class="form-control" name="password" required
-                                placeholder="password">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Nama</label>
+                                <input type="text" class="form-control" name="password" value="<?php echo $password;?>" required disabled>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Fullname</label>
-                            <input type="text" class="form-control" name="fullname_tutor" required
-                                placeholder="fullname">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Pekerjaan</label>
+                                <input type="text" class="form-control" name="fullname_tutor" value="<?php echo $fullname;?>" required disabled>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Instansi</label>
-                            <input type="text" class="form-control" name="instansi" required
-                                placeholder="instansi">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Instansi</label>
+                                <input type="text" class="form-control" name="instansi" value="<?php echo $instansi;?>" required disabled>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">No HP</label>
-                            <input type="text" class="form-control" name="no_telp" required
-                                placeholder="no telp">
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Gender</label>
-                            <input type="text" class="form-control" name="gender" required
-                                placeholder="gender">
+                            <input type="text" class="form-control" name="no_telp" value="<?php echo $notelp; ?>" required disabled>
+                        </div>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Gender</label>
+                                <input type="text" class="form-control" name="gender" value="<?php echo $gender;?>" required disabled>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Alamat</label>
-                            <textarea class="form-control" name="alamat" rows="3" required></textarea>
+                            <textarea class="form-control" name="alamat" rows="3" disabled><?= $alamat; ?></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Tanggal Lahir</label>
-                            <input type="date" class="form-control" name="tgl_lahir" required
-                                placeholder="tangal lahir">
-                        <div class="form-group">
-                            <button class="btn btn-primary" type="submit" name="tambah">Simpan</button>
-                            <a href="../production/datapasien.html">
-                                <button class="btn btn-danger" type="button" name="kembali">Kembali</button>
-                            </a>
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label class="form-label">Tanggal Lahir</label>
+                                <input type="date" class="form-control" name="tgl_lahir" value="<?php echo $tgllahir;?>" required disabled>
+                            </div>
                         </div>
+                        <a href="../production/datapasien.php">
+                            <button class="btn btn-danger" type="button" name="kembali">Kembali</button>
+                        </a>
                     </form>
                   </div>
                   </div>
